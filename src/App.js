@@ -57,8 +57,8 @@ function App() {
           return (
             <tr className="rows" key={e.id}>
               <td>
-                {" "}
-                <img src={e.pictureUrl} alt={e.name} />{" "}
+                
+                <img src={e.pictureUrl} alt={e.name} />
               </td>
               <td>{e.name}</td>
               <td>{e.popularity}</td>
