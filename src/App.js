@@ -7,19 +7,21 @@ function App() {
   const [contact, setContact] = useState(fiveContacts);
 
   const restContacts = Contacts.slice(5, Contacts.length);
-  let randomContact; 
-    function randomizer() {
-    randomContact = restContacts[Math.floor(Math.random() * restContacts.length)];
-  };
+
+  let randomContact;
+  function randomizer() {
+    randomContact =
+      restContacts[Math.floor(Math.random() * restContacts.length)];
+  }
 
   const addRandomContact = () => {
     randomizer();
-    const str = JSON.stringify(contact)
-    if(str.indexOf(randomContact.id) === -1){
-    const randomArr = [];
-    randomArr.push(randomContact);
-    setContact((prevState) => [...prevState, ...randomArr]);
-    }else{
+    const str = JSON.stringify(contact);
+    if (str.indexOf(randomContact.id) === -1) {
+      const randomArr = [];
+      randomArr.push(randomContact);
+      setContact((prevState) => [...prevState, ...randomArr]);
+    } else {
       randomizer();
     }
   };
@@ -41,7 +43,7 @@ function App() {
   const deleteContact = (id) => {
     const filteredContacts = contact.filter((e) => {
       const deleted = e.id !== id;
-      restContacts.push(deleted)
+      restContacts.push(deleted);
       return deleted;
     });
     setContact(filteredContacts);
@@ -67,7 +69,6 @@ function App() {
           return (
             <tr className="rows" key={e.id}>
               <td>
-                
                 <img src={e.pictureUrl} alt={e.name} />
               </td>
               <td>{e.name}</td>
